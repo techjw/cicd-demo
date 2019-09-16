@@ -2,8 +2,8 @@ apiVersion: v1
 kind: BuildConfig
 metadata:
   labels:
-    app: python-webapp-pipeline
-  name: python-webapp-pipeline
+    app: nodejs-webapp-pipeline
+  name: nodejs-webapp-pipeline
 spec:
   source:
     git:
