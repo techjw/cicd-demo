@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: python-webapp-pipeline
+  name: python-webapp-pipeline
+spec:
+  source:
+    git:
+      ref: master
+      uri: https://github.com/techjw/cicd-demo.git
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: Jenkinsfile
+    type: JenkinsPipeline
+  triggers:
+    - github:
+        secret: secret
+      type: GitHub
+    - generic:
+        secret: secret
+      type: Generic
