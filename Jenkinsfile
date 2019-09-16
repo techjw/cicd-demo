@@ -1,14 +1,14 @@
 pipeline{
     agent{
         node{
-            label "python36"
+            label "nodejs"
         }
     }
 
     environment{
-        APPLICATION_NAME = 'python-webapp'
+        APPLICATION_NAME = 'nodejs-webapp'
         DEV_PROJECT = "deploy-demo"
-        BUILDCFG_NAME = "python-webapp"
+        BUILDCFG_NAME = "nodejs-webapp"
     }
 
     stages{
@@ -38,7 +38,7 @@ pipeline{
                 script {
                     openshift.withCluster( "https://api-ocp4-jwalton-redhat-demo-com:6443") {
                         openshift.withProject(DEV_PROJECT) {
-                            openshift.newBuild("--name=${BUILDCFG_NAME}", "--image-stream=openshift/python:3.6", "--binary=true")
+                            openshift.newBuild("--name=${BUILDCFG_NAME}", "--image-stream=openshift/nodejs:10", "--binary=true")
                         }
                     }
                 }
