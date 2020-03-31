@@ -102,6 +102,7 @@ application (nodejs + mongodb).
 
 
 ```bash
+oc new-project demo-jenkins-pipeline
 oc get template -n openshift | grep -i jenkins
 oc new-app jenkins-ephemeral
 oc create -f nodejs-jenkins-pipeline.yaml
