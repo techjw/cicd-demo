@@ -119,12 +119,13 @@ oc create -f nodejs-jenkins-pipeline.yaml
 Start with a quick tour of the Developer view, then run through the
 following presentation containing slides that introduce more advanced features.
 
-[OpenShift Developer Experience](#Wrap-Up-Presentation)
+[OpenShift Developer Experience](https://docs.google.com/presentation/d/1py6p1nA1Sz4FzsUZBS0IIIsuQKxfWP174A3z-w_Zr10/edit?usp=sharing)
 
-* OpenShift Pipelines (Tekton)
 * CodeReady Workspaces
 * CodeReady Containers
-* `odo` 
+* `odo` Developer CLI
+* OpenShift Pipelines (Tekton)
+* OpenShift Serverless (KNative)
 
 
 ## Recognition
