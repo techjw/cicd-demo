@@ -8,12 +8,17 @@ demonstration of the development capabilities of OpenShift.
 * [Blue-Green Deployment](#Blue-Green-Deployment)
 * [Jenkins Pipeline Deployment](#Jenkins-Pipeline-Deployment)
 * [Wrap-up Presentation](#Wrap-Up-Presentation)
+    * Can also use as start screen and agenda before starting the demo
 
-Before starting, make sure you have cloned a copy of this repository locally.
-All the YAML deployment files referenced are in the repo.
+Before you begin, make sure you have cloned a copy of all repositories locally.
+All the YAML deployment files referenced are in the `cicd-demo` repo, and
+having the dependent repos local is handy for showing the code.
+(You will need to fork in order to do the code edit for the Containerfile demo)
 
 ```bash
 git clone https://github.com/techjw/cicd-demo.git
+git clone https://github.com/techjw/s2i-containerfile.git
+git clone https://github.com/techjw/bluegreen-demo.git
 cd cicd-demo
 ```
 
