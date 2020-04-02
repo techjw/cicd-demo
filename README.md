@@ -26,6 +26,7 @@ The application requires nodejs 12, so create an ImageStream for ubi8/nodejs-12
 oc create -f imagestream-nodejs12.yaml
 oc new-project demo-s2i-git
 oc new-app openshift/nodejs-12~https://github.com/techjw/DuckHunt-JS.git
+oc expose svc duckhunt-js
 ```
 
 * Show all resources via command-line (`oc get all -n demo-s2i-git`)
@@ -45,13 +46,12 @@ oc get route s2i-containerfile
 
 * Show all resources via command-line (`oc get all -n demo-s2i-git`)
 * Show all resources via console
+* Show the Git Webhook in the BuildConfig console page
 
 #### Update index.php and rebuild
 ```bash
 oc start-build s2i-containerfile --follow=true
 ```
-
-* Show the Git Webhook in the BuildConfig console page
 
 
 ## Blue-Green Deployment
@@ -60,7 +60,7 @@ Setup Blue-Green deployment for 2 versions of an application.
 #### Deploy BLUE application
 ```bash
 oc new-project bg-demo
-oc new-app nginx-example~https://github.com/techjw/bluegreen-demo.git#blue --name=nginx-blue
+oc new-app nginx~https://github.com/techjw/bluegreen-demo.git#blue --name=nginx-blue
 oc expose svc nginx-blue
 oc get route nginx-blue
 ```
@@ -73,7 +73,7 @@ oc get route nginx-bluegreen
 
 #### Deploy GREEN application, switch traffic manually
 ```bash
-oc new-app nginx-example~https://github.com/techjw/bluegreen-demo.git#green --name=nginx-green
+oc new-app nginx~https://github.com/techjw/bluegreen-demo.git#green --name=nginx-green
 oc expose svc nginx-green
 oc get route nginx-green
 
@@ -105,6 +105,8 @@ application (nodejs + mongodb).
 oc new-project demo-jenkins-pipeline
 oc get template -n openshift | grep -i jenkins
 oc new-app jenkins-ephemeral
+
+# wait for jenkins to finish deploying (container ready), start the talking points below
 oc create -f nodejs-jenkins-pipeline.yaml
 ```
 
