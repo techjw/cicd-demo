@@ -118,6 +118,8 @@ oc create -f nodejs-jenkins-pipeline.yaml
 * Talk about the available templates used for Jenkins deploy
     * A Jenkins server is required for JenkinsPipeline strategy
 * Show the BuildConfig pipeline interface in the console
+* Show the Developer console view
+    * Optional: add the `app.kubernetes.io/part-of=nodejs-example` label to components
 * Introduce Tekton / OpenShift Pipelines
 
 
