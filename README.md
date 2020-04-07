@@ -27,6 +27,9 @@ cd cicd-demo
 Demonstrate build/deploy of the Duck Hunt application using S2I from source code.
 The application requires nodejs 12, so create an ImageStream for ubi8/nodejs-12
 
+* You will need privileges to import the imagestream to the `openshift` namespace.
+* Alternatively, create the project first and add the imagestream to the demo project.
+
 ```bash
 oc create -f imagestream-nodejs12.yaml
 oc new-project demo-s2i-git
@@ -39,8 +42,7 @@ oc expose svc duckhunt-js
 
 
 ## S2I from Git Containerfile
-Demonstrate build/deploy of a simple application using S2I to build from a Containerfile.
-Also, be sure to explain Containerfile == Dockerfile.
+Demonstrate build/deploy of a simple application using S2I to build from a container Dockerfile.
 
 ```bash
 oc new-project demo-s2i-container
@@ -50,7 +52,7 @@ oc get route s2i-containerfile
 ```
 
 * Show all resources via command-line (`oc get all -n demo-s2i-git`)
-* Show all resources via console
+* Show all resources via console - including project-specific imagestreams.
 * Show the Git Webhook in the BuildConfig console page
 
 #### Update index.php and rebuild
@@ -119,7 +121,7 @@ oc create -f nodejs-jenkins-pipeline.yaml
     * A Jenkins server is required for JenkinsPipeline strategy
 * Show the BuildConfig pipeline interface in the console
 * Show the Developer console view
-    * Optional: add the `app.kubernetes.io/part-of=nodejs-example` label to components
+    * Note: The label `app.kubernetes.io/part-of=nodejs-example` is added during `new-app` to group the application.
 * Introduce Tekton / OpenShift Pipelines
 
 
