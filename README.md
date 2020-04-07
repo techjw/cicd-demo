@@ -27,12 +27,11 @@ cd cicd-demo
 Demonstrate build/deploy of the Duck Hunt application using S2I from source code.
 The application requires nodejs 12, so create an ImageStream for ubi8/nodejs-12
 
-* You will need privileges to import the imagestream to the `openshift` namespace.
-* Alternatively, create the project first and add the imagestream to the demo project.
+* You do not need extra privileges, the imagestream is added to the demo project.
 
 ```bash
-oc create -f imagestream-nodejs12.yaml
 oc new-project demo-s2i-git
+oc create -f imagestream-nodejs12.yaml
 oc new-app openshift/nodejs-12~https://github.com/techjw/DuckHunt-JS.git
 oc expose svc duckhunt-js
 ```
