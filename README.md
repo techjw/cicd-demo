@@ -28,11 +28,13 @@ Demonstrate build/deploy of the Duck Hunt application using S2I from source code
 The application requires nodejs 12, so create an ImageStream for ubi8/nodejs-12
 
 * You do not need extra privileges, the imagestream is added to the demo project.
+* You will need to add an image pull secret for Red Hat Registry in the namespace.
+* It may be best to prep the `demo-s2i-git` project and pull secret before running the demo.
 
 ```bash
 oc new-project demo-s2i-git
 oc create -f imagestream-nodejs12.yaml
-oc new-app openshift/nodejs-12~https://github.com/techjw/DuckHunt-JS.git
+oc new-app nodejs-12~https://github.com/techjw/DuckHunt-JS.git
 oc expose svc duckhunt-js
 ```
 
@@ -65,7 +67,7 @@ Setup Blue-Green deployment for 2 versions of an application.
 
 #### Deploy BLUE application
 ```bash
-oc new-project bg-demo
+oc new-project demo-bluegreen
 oc new-app nginx~https://github.com/techjw/bluegreen-demo.git#blue --name=nginx-blue
 oc expose svc nginx-blue
 oc get route nginx-blue
@@ -112,8 +114,11 @@ oc new-project demo-jenkins-pipeline
 oc get template -n openshift | grep -i jenkins
 oc new-app jenkins-ephemeral
 
-# wait for jenkins to finish deploying (container ready), start the talking points below
+# Wait for jenkins to finish deploying (container ready), start the talking points below
 oc create -f nodejs-jenkins-pipeline.yaml
+
+# The BuildConfig will not automatically start the build, you will need to manually start one
+# Once run, it takes you to the Build and will show the pipeline stages
 ```
 
 * Talk about the available templates used for Jenkins deploy
