@@ -128,7 +128,7 @@ oc create -f nodejs-jenkins-pipeline.yaml
 * Show the BuildConfig pipeline interface in the console
 * Show the Developer console view
     * Note: The label `app.kubernetes.io/part-of=nodejs-example` is added during `new-app` to group the application.
-* Use the [Jenkinsfile] and deploy a new pipeline in the Jenkins dashboard
+* Use the [Jenkinsfile](Jenkinsfile) and deploy a new pipeline in the Jenkins dashboard
 * Introduce Tekton / OpenShift Pipelines
 
 
