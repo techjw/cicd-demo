@@ -7,6 +7,7 @@ demonstration of the development capabilities of OpenShift.
 * [Source-to-Image (S2I) from Containerfile](#S2I-from-Containerfile)
 * [Blue-Green Deployment](#Blue-Green-Deployment)
 * [Jenkins Pipeline Deployment](#Jenkins-Pipeline-Deployment)
+* [Jenkins Operator Install](#Jenkins-Operator-Install)
 * [Wrap-up Presentation](#Wrap-Up-Presentation)
     * Can also use as start screen and agenda before starting the demo
 
@@ -123,10 +124,19 @@ oc create -f nodejs-jenkins-pipeline.yaml
 
 * Talk about the available templates used for Jenkins deploy
     * A Jenkins server is required for JenkinsPipeline strategy
+    * JenkinsPipeline strategy is deprecated, interface banner shown for Pipelines (Tekton)
 * Show the BuildConfig pipeline interface in the console
 * Show the Developer console view
     * Note: The label `app.kubernetes.io/part-of=nodejs-example` is added during `new-app` to group the application.
+* Use the [Jenkinsfile] and deploy a new pipeline in the Jenkins dashboard
 * Introduce Tekton / OpenShift Pipelines
+
+
+## Jenkins Operator Install
+
+Discuss the Jenkins operator options.
+* CloudBees CI, certified operator for supported Jenkins
+* Community Jenkins operator (alpha status, manual installation)
 
 
 ## Wrap-Up Presentation
