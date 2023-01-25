@@ -144,13 +144,17 @@ Discuss the Jenkins operator options.
 Start with a quick tour of the Developer view, then run through the
 following presentation containing slides that introduce more advanced features.
 
-[OpenShift Developer Experience](https://docs.google.com/presentation/d/1py6p1nA1Sz4FzsUZBS0IIIsuQKxfWP174A3z-w_Zr10/edit?usp=sharing)
+[OpenShift Developer Experience](https://docs.google.com/presentation/d/1etaVHmejoG00Gqb5ikvvy4UTYXYfaPCYbqruEVv01wY/edit?usp=sharing)
 
-* CodeReady Workspaces
-* CodeReady Containers
-* `odo` Developer CLI
-* OpenShift Pipelines (Tekton)
-* OpenShift Serverless (KNative)
+* Developer Tools
+    * OpenShift Local
+    * OpenShift Dev Spaces
+    * `odo` Developer CLI
+    * OpenShift Toolkit (IDE plugin)
+    * Additional IDE plugins (Runtimes, etc)
+* OpenShift Jenkins options + OpenShift Pipelines (Tekton)
+* OpenShift GitOps (ArgoCD)
+* Additional materials in appendix (Builds, Serverless, Service Mesh, etc)
 
 
 ## Recognition
