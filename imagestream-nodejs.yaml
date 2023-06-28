@@ -1,0 +1,26 @@
+---
+  kind: ImageStream
+  apiVersion: image.openshift.io/v1
+  metadata:
+    name: nodejs-16
+    namespace: demo-s2i-git
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+      - name: latest
+        annotations:
+          description: Run Node.js 16 applications on UBI 8
+          iconClass: icon-nodejs
+          openshift.io/display-name: UBI8 Node.js 16
+          openshift.io/provider-display-name: 'Red Hat, Inc.'
+          sampleRepo: 'https://github.com/sclorg/nodejs-ex.git'
+          tags: nodejs
+          version: '16'
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/ubi8/nodejs-16
+        importPolicy: {}
+        referencePolicy:
+          type: Local
+  
