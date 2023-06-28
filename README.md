@@ -34,8 +34,8 @@ The application requires nodejs 12, so create an ImageStream for ubi8/nodejs-12
 
 ```bash
 oc new-project demo-s2i-git
-oc create -f imagestream-nodejs12.yaml
-oc new-app nodejs-12~https://github.com/techjw/DuckHunt-JS.git
+oc create -f imagestream-nodejs.yaml
+oc new-app nodejs-16~https://github.com/techjw/DuckHunt-JS.git
 oc expose svc duckhunt-js
 ```
 
