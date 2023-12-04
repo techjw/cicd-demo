@@ -7,6 +7,7 @@ demonstration of the development capabilities of OpenShift.
 * [Source-to-Image (S2I) from Containerfile](#S2I-from-Containerfile)
 * [Blue-Green Deployment](#Blue-Green-Deployment)
 * [Jenkins Pipeline Deployment](#Jenkins-Pipeline-Deployment)
+* [Jenkins Operator Install](#Jenkins-Operator-Install)
 * [Wrap-up Presentation](#Wrap-Up-Presentation)
     * Can also use as start screen and agenda before starting the demo
 
@@ -33,8 +34,8 @@ The application requires nodejs 12, so create an ImageStream for ubi8/nodejs-12
 
 ```bash
 oc new-project demo-s2i-git
-oc create -f imagestream-nodejs12.yaml
-oc new-app nodejs-12~https://github.com/techjw/DuckHunt-JS.git
+oc create -f imagestream-nodejs.yaml
+oc new-app nodejs-16~https://github.com/techjw/DuckHunt-JS.git
 oc expose svc duckhunt-js
 ```
 
@@ -123,10 +124,19 @@ oc create -f nodejs-jenkins-pipeline.yaml
 
 * Talk about the available templates used for Jenkins deploy
     * A Jenkins server is required for JenkinsPipeline strategy
+    * JenkinsPipeline strategy is deprecated, interface banner shown for Pipelines (Tekton)
 * Show the BuildConfig pipeline interface in the console
 * Show the Developer console view
     * Note: The label `app.kubernetes.io/part-of=nodejs-example` is added during `new-app` to group the application.
+* Use the [Jenkinsfile](Jenkinsfile) and deploy a new pipeline in the Jenkins dashboard
 * Introduce Tekton / OpenShift Pipelines
+
+
+## Jenkins Operator Install
+
+Discuss the Jenkins operator options.
+* CloudBees CI, certified operator for supported Jenkins
+* Community Jenkins operator (alpha status, manual installation)
 
 
 ## Wrap-Up Presentation
@@ -134,13 +144,17 @@ oc create -f nodejs-jenkins-pipeline.yaml
 Start with a quick tour of the Developer view, then run through the
 following presentation containing slides that introduce more advanced features.
 
-[OpenShift Developer Experience](https://docs.google.com/presentation/d/1py6p1nA1Sz4FzsUZBS0IIIsuQKxfWP174A3z-w_Zr10/edit?usp=sharing)
+[OpenShift Developer Experience](https://docs.google.com/presentation/d/1etaVHmejoG00Gqb5ikvvy4UTYXYfaPCYbqruEVv01wY/edit?usp=sharing)
 
-* CodeReady Workspaces
-* CodeReady Containers
-* `odo` Developer CLI
-* OpenShift Pipelines (Tekton)
-* OpenShift Serverless (KNative)
+* Developer Tools
+    * OpenShift Local
+    * OpenShift Dev Spaces
+    * `odo` Developer CLI
+    * OpenShift Toolkit (IDE plugin)
+    * Additional IDE plugins (Runtimes, etc)
+* OpenShift Jenkins options + OpenShift Pipelines (Tekton)
+* OpenShift GitOps (ArgoCD)
+* Additional materials in appendix (Builds, Serverless, Service Mesh, etc)
 
 
 ## Recognition
